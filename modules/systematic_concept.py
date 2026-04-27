@@ -34,27 +34,27 @@ def render():
 
     # ── Tabs ──────────────────────────────────────────────────────────────
     tab1, tab2, tab3, tab4 = st.tabs([
+        "⚠️ Problem Statement",
         "📐 System Architecture",
         "🔄 Data Pipeline Flow",
         "🚀 Tech Stack",
-        "⚠️ Problem Statement",
     ])
 
     with tab1:
+        problems_html = _build_problems_html()
+        components.html(problems_html, height=750, scrolling=False)
+
+    with tab2:
         flowchart_html = _build_flowchart_html()
         components.html(flowchart_html, height=4330, scrolling=False)
 
-    with tab2:
+    with tab3:
         pipeline_html = _build_pipeline_flow_html()
         components.html(pipeline_html, height=2500, scrolling=False)
 
-    with tab3:
+    with tab4:
         cicd_html = _build_cicd_html()
         components.html(cicd_html, height=1150, scrolling=False)
-
-    with tab4:
-        problems_html = _build_problems_html()
-        components.html(problems_html, height=750, scrolling=False)
 
 
 def _build_flowchart_html() -> str:
