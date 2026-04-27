@@ -945,7 +945,7 @@ def _call_gemini(
     genai.configure(api_key=st.session_state["gemini_key"])
 
     # Use a known, stable model — avoids fragile auto-selection from list_models()
-    selected_model = "gemini-2.0-flash"
+    selected_model = "gemini-2.5-flash"
     try:
         model = genai.GenerativeModel(selected_model)
     except Exception:
