@@ -522,7 +522,7 @@ st.markdown('''
         <p style="margin:0 0 4px;font-size:12px;color:rgba(255,255,255,0.45);font-style:italic;">
           2026 Master of Supply Chain Management</p>
         <p style="margin:0 0 4px;font-size:12px;color:rgba(255,255,255,0.45);font-style:italic;">
-          Project Professors: Parag Dhumal, Tracey Lauterborn</p>
+          Project Professors: <a href="https://search.asu.edu/profile/5120930" target="_blank" style="color:inherit;text-decoration:none;">Parag Dhumal</a>, <a href="https://search.asu.edu/profile/268915" target="_blank" style="color:inherit;text-decoration:none;">Tracey Lauterborn</a></p>
         <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.45);font-style:italic;">
           Capstone Project — Team Maroon 5</p>
       </div>
