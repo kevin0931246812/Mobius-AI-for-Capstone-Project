@@ -52,26 +52,12 @@ def _load_customer_insights(data_mtime: float) -> dict:
     return {}
 
 
-def _load_saved_key() -> str | None:
-    """Load the API key from local file (persists across restarts)."""
-    if os.path.exists(_KEY_FILE):
-        try:
-            with open(_KEY_FILE) as f:
-                key = f.read().strip()
-                if key:
-                    return key
-        except OSError:
-            pass
-    return None
-
-
-def _save_key(key: str) -> None:
-    """Save the API key to local file for future sessions."""
+def _get_secret_key() -> str | None:
+    """Load the API key from Streamlit secrets if available."""
     try:
-        with open(_KEY_FILE, "w") as f:
-            f.write(key)
-    except OSError:
-        pass
+        return st.secrets.get("GEMINI_API_KEY")
+    except Exception:
+        return None
 
 
 def _logo_b64() -> str:
@@ -592,11 +578,6 @@ def _render_popup_content(
             if st.button("🔌 Disconnect", key="disconnect_api", type="tertiary",
                          help="Disconnect API key"):
                 st.session_state.pop("gemini_key", None)
-                key_file = os.path.join(os.path.dirname(__file__), "..", ".gemini_key")
-                try:
-                    os.remove(key_file)
-                except FileNotFoundError:
-                    pass
                 st.rerun()
     with _close_col:
         if st.button("✕", key="mobius_close_btn", type="tertiary",
@@ -606,7 +587,7 @@ def _render_popup_content(
 
     # ── No API key → try loading from saved file, then show connect bar ───────
     if not st.session_state.get("gemini_key"):
-        saved = _load_saved_key()
+        saved = _get_secret_key()
         if saved:
             st.session_state["gemini_key"] = saved
             st.rerun()
@@ -627,7 +608,6 @@ def _render_popup_content(
                          use_container_width=True, key="popup_connect"):
                 if _typed_key.strip():
                     st.session_state["gemini_key"] = _typed_key.strip()
-                    _save_key(_typed_key.strip())
                     st.success("✅ Connected!")
                     st.rerun()
                 else:
