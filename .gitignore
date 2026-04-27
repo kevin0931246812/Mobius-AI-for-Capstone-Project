@@ -1,0 +1,23 @@
+# API keys (never commit secrets)
+.gemini_key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
+~$*
+
+# IDE
+*.code-workspace
+
+# Generated data (will be recreated on first run)
+CLEANED_*.csv
+FINAL_*.csv
+item_metrics.json
+customer_insights.json
+
+# Chat sessions (user-specific)
+chat_sessions/

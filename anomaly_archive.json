@@ -1,0 +1,35 @@
+[
+    {
+        "archive_id": "customer_i__1000l_tote__2025-02-17",
+        "archived_at": "2026-03-24T12:38:37",
+        "customer": "Customer I",
+        "item": "1000L Tote",
+        "date": "2025-02-17",
+        "qty": 20,
+        "z_score": 3.45,
+        "reason": "Seasonal Demand",
+        "notes": ""
+    },
+    {
+        "archive_id": "customer_i__1000l_tote__2025-06-30",
+        "archived_at": "2026-03-24T13:51:12",
+        "customer": "Customer I",
+        "item": "1000L Tote",
+        "date": "2025-06-30",
+        "qty": 20,
+        "z_score": 3.45,
+        "reason": "Seasonal Demand",
+        "notes": ""
+    },
+    {
+        "archive_id": "customer_i__1000l_tote__2025-08-29",
+        "archived_at": "2026-03-24T15:08:36",
+        "customer": "Customer I",
+        "item": "1000L Tote",
+        "date": "2025-08-29",
+        "qty": 19,
+        "z_score": 3.25,
+        "reason": "Urgent Order",
+        "notes": ""
+    }
+]
