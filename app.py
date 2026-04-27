@@ -529,8 +529,8 @@ st.markdown('''
     </div>
     <div style="flex:1;display:flex;align-items:center;padding:16px 24px;">
       <table style="border-collapse:separate;border-spacing:0 4px;font-size:12px;">
-        <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Project Executor</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;">Jarvis Lin</td></tr>
-        <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Systematic Engineer</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;">Jarvis Lin</td></tr>
+        <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Project Executor</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;"><a href="https://www.linkedin.com/in/hung-ting-lin-42071b344/" target="_blank" style="color:#D4871C;text-decoration:none;">Jarvis Lin</a></td></tr>
+        <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Systematic Engineer</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;"><a href="https://www.linkedin.com/in/hung-ting-lin-42071b344/" target="_blank" style="color:#D4871C;text-decoration:none;">Jarvis Lin</a></td></tr>
         <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Project Manager</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;">Ali Assiri</td></tr>
         <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Project Planner</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;">Meshari Alalyani</td></tr>
         <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Data Analyst, Coordinator</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;">Yifan Liu</td></tr>
