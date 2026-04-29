@@ -535,6 +535,7 @@ st.markdown('''
         <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Project Planner</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;">Meshari Alalyani</td></tr>
         <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Data Analyst, Coordinator</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;">Yifan Liu</td></tr>
         <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Data Validator</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;">Hassan Al Murdhimah</td></tr>
+        <tr><td style="padding:5px 12px;color:rgba(255,255,255,0.55);border:none;">Technical support</td><td style="padding:5px 12px;color:#D4871C;font-weight:600;border:none;"><a href="https://www.linkedin.com/in/michaeljlewisii/" target="_blank" style="color:#D4871C;text-decoration:none;">Prof. Michael J. Lewis II</a></td></tr>
       </table>
     </div>
   </div>
@@ -556,9 +557,12 @@ try:
         _, _fc, _ = st.columns([2, 5, 2])
         with _fc:
             st.markdown(
-                f'<div style="text-align:center;margin-top:20px;">'
+                f'<div style="margin-top:20px;position:relative;width:100%;max-width:605px;margin-left:auto;margin-right:auto;">'
                 f'<img src="data:image/png;base64,{_fl_b64}" '
-                f'style="max-width:605px;width:100%;display:block;margin:0 auto;opacity:0.85;"></div>',
+                f'style="width:100%;display:block;opacity:0.85;">'
+                f'<a href="https://mlindustries.com/" target="_blank" style="position:absolute;top:0;left:0;width:50%;height:100%;z-index:10;" title="ML Industries"></a>'
+                f'<a href="https://www.asu.edu/" target="_blank" style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:10;" title="Arizona State University"></a>'
+                f'</div>',
                 unsafe_allow_html=True
             )
 except Exception:
