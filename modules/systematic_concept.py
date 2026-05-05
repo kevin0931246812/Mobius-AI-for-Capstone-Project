@@ -42,7 +42,7 @@ def render():
 
     with tab1:
         problems_html = _build_problems_html()
-        components.html(problems_html, height=750, scrolling=False)
+        components.html(problems_html, height=4800, scrolling=False)
 
     with tab2:
         flowchart_html = _build_flowchart_html()
@@ -1643,41 +1643,247 @@ body {
 <body>
 <div class="problems">
 
-<!-- PROJECT OVERVIEW -->
-<div class="section-hdr" style="border-left-color:#D4871C;color:#D4871C;">
-    🎯 Project Overview
+<!-- 1. Executive Summary -->
+<div class="section-hdr" style="border-left-color:#22c55e;color:#22c55e;">
+    1. Executive Summary
 </div>
 <div class="context-block">
-    <div class="ctx-title" style="color:#E8993E;">📋 Objective</div>
     <div class="ctx-body">
-        This project aims to analyze and optimize the management of <strong>returnable assets</strong> such as totes,
-        drums, and accessories within the supply chain. The objective is to research industry's best
-        practices for calculating <strong>optimal fleet sizes</strong> that balance cost efficiency, asset availability,
-        and operational flexibility. The project will evaluate current asset utilization, return cycle
-        times, and loss rates to identify gaps and improvement opportunities. In addition, <strong>data-driven
-        tracking and monitoring methods</strong> will be developed to provide real-time visibility of assets
-        throughout the loop, incorporating risk factors such as time delays, cost implications, and
-        availability constraints. The outcome will be a <strong>standardized approach for rightsizing</strong> the
-        returnable asset fleet and an enhanced tracking process that reduces waste, minimizes
-        shortages, and supports continuous improvement in supply chain performance.
+        This applied project addresses a critical logistical challenge for Moses Lake Industries (MLI): the optimization of a <span class="stat-highlight">$20 million</span> investment in high-value, returnable asset fleets (e.g., totes and industrial drums). Despite this massive financial outlay, MLI's legacy operational landscape suffers from a severe lack of real-time visibility and predictive tracking regarding asset returns. This systemic opacity leads to cascading inefficiencies, including localized asset shortages, idle inventory bloat in specific geographic regions, and elevated regulatory compliance risks.
+        <br><br>
+        The accuracy of tracking returnable assets directly impacts MLI's customer service levels; if chemical containers are unavailable, semiconductor manufacturing lines face critical disruptions. Furthermore, inefficient asset circulation severely damages working capital and environmental sustainability. Complicating matters, stringent European Union (EU) regulations impose a strict <span class="stat-highlight">4.25-year (1,551 days)</span> limit on asset usage, necessitating a proactive decommissioning strategy.
+        <br><br>
+        To resolve these challenges, our team engineered <strong>Möbius AI</strong>—a comprehensive digital platform comprising an end-to-end data pipeline, a stochastic discrete-event simulation engine, and a Generative AI-powered Control Tower. This system successfully ingests fragmented historical data, algorithmically remediates structural errors, and simulates real-world supply chain volatility to calculate mathematically optimal fleet sizes. Coupled with a Multi-Agent ecosystem, Möbius AI fundamentally transitions MLI from a reactive tracking posture to a proactive, predictive asset management strategy.
+    </div>
+</div>
+
+<!-- 2. Introduction and Background -->
+<div class="section-hdr" style="border-left-color:#38bdf8;color:#38bdf8;">
+    2. Introduction and Background
+</div>
+<div class="context-block">
+    <div class="ctx-title" style="color:#56B9F8;">2.1 The Concept of Möbius AI</div>
+    <div class="ctx-body">
+        The project is named after the Möbius strip—a continuous, infinite mathematical loop. This reflects the foundational goal of a closed-loop supply chain: keeping returnable assets in continuous, frictionless circulation between MLI and its clients. Before this intervention, supply chain managers were forced to manually reconcile disparate, disconnected spreadsheets detailing manufacturing dates, sales volumes, and documented transit times. Decision-making was inherently retrospective; operations only realized a tank was missing when an emergency occurred. Möbius AI was designed to act as a digital brain, transforming static data into a dynamic ecosystem capable of predicting stockouts before they happen.
     </div>
 
     <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
 
-    <div class="ctx-title" style="color:#C084FC;">🏢 Background</div>
+    <div class="ctx-title" style="color:#56B9F8;">2.2 Industry Context</div>
     <div class="ctx-body">
-        MLI currently has approximately <span class="stat-highlight">$20 million</span> invested in returnable asset fleets across its
-        customer base. There are multiple different fleet operations, from direct restocks to 3PL
-        consignment warehouses. Several factors impact the ability to effectively track and manage
-        these assets, including <strong>limited information sharing from customers</strong>, regulatory restrictions such
-        as the <strong>EU requirement that packaging older than 4.25 years cannot be shipped</strong>, and gaps in
-        cross-departmental collaboration within MLI. At present, fleet size calculations are managed
-        through <strong>Excel-based data packages</strong>, which provide limited functionality — tracking
-        physical movement of assets remains constrained. As a result, MLI often experiences <strong>runout
-        situations</strong> where insufficient packaging is available to meet upcoming orders, driven by a
-        lack of visibility into return schedules. While technologies such as RFID tagging and GPS
-        tracking have been explored, the <strong>high cost</strong> associated with deploying these solutions across
-        the large fleet has so far prevented implementation.
+        Returnable assets are the lifeblood of modern bulk liquid supply chains, particularly in semiconductor manufacturing where chemical purity is paramount.
+        <div style="background:rgba(255,255,255,0.04); border-left:3px solid #38bdf8; padding:10px 14px; margin:10px 0; border-radius:4px;">
+            <strong>📌 Concept Breakdown: Industry Terminology</strong><br>
+            • <strong>Returnable Assets / IBCs (Intermediate Bulk Containers):</strong> Massive, heavy-duty plastic cubes enclosed in metal cages holding hundreds of gallons of chemicals.<br>
+            • <strong>Closed-Loop Supply Chain:</strong> A logistical model requiring a continuous cycle of: <em>Fill → Ship → Dwell → Return → Clean → Repeat.</em>
+        </div>
+        Managing these assets at scale requires pinpoint accuracy. However, legacy spreadsheet systems collapse under the weight of enterprise-scale operations. Furthermore, plastic naturally degrades when holding harsh chemicals. Consequently, the EU enforces a strict 4.25-year lifecycle limit on these containers, forcing organizations to meticulously balance operational efficiency with strict international compliance mandates.
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#56B9F8;">2.3 Problem Statement</div>
+    <div class="ctx-body">
+        Moses Lake Industries currently operates blind to real-time asset locations, physical conditions, and age-limit compliance. This decentralized approach ruins data integrity and destroys cross-functional coordination. As a result, the organization falls victim to the <strong>bullwhip effect</strong>—where minor delays in customer return times cause MLI planners to panic and over-order replacement containers, unnecessarily bloating capital expenditures.
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#56B9F8;">2.4 Project Objectives and Scope</div>
+    <div class="ctx-body">
+        This project aims to build a scalable, AI-driven decision-support software layer. The primary end-users are:<br>
+        <div class="kq-item" style="margin-top:8px;">
+            <div class="kq-bullet">1</div>
+            <div class="kq-text"><strong>Supply Chain Executives:</strong> To monitor overall fleet performance, working capital (cash tied up in physical assets), and international EU compliance.</div>
+        </div>
+        <div class="kq-item">
+            <div class="kq-bullet">2</div>
+            <div class="kq-text"><strong>Logistics Teams:</strong> To track specific clients who are hoarding assets beyond contractual agreements.</div>
+        </div>
+        <div class="kq-item">
+            <div class="kq-bullet">3</div>
+            <div class="kq-text"><strong>Planners:</strong> To utilize simulation tools to stress-test the supply chain against potential bottlenecks.</div>
+        </div>
+    </div>
+</div>
+
+<!-- 3. Methodology -->
+<div class="section-hdr" style="border-left-color:#facc15;color:#facc15;">
+    3. Methodology: Data Collection & Preprocessing
+</div>
+<div class="context-block">
+    <div class="ctx-body" style="font-style:italic; margin-bottom:14px; opacity:0.8;">
+        "The most significant hurdle in this applied project was not the advanced mathematics, but the chaotic reality of human data entry. Building a predictive model requires pristine data, yet the raw historical records were heavily fragmented and structurally flawed."
+    </div>
+
+    <div class="ctx-title" style="color:#FDE047;">3.1 Data Landscape</div>
+    <div class="ctx-body">
+        The core dataset, <code>MLI Capstone Data.xlsx</code>, served as the foundational truth, consisting of four primary dimensions:<br>
+        <div class="kq-item" style="margin-top:8px;"><div class="kq-bullet">1</div><div class="kq-text"><strong>Sales QTY:</strong> Historical shipment volumes detailing customer demand.</div></div>
+        <div class="kq-item"><div class="kq-bullet">2</div><div class="kq-text"><strong>MFG Date:</strong> The "birth certificates" detailing when individual containers were manufactured.</div></div>
+        <div class="kq-item"><div class="kq-bullet">3</div><div class="kq-text"><strong>Documented Loop Times:</strong> Service Level Agreements (SLAs) establishing expected return times.</div></div>
+        <div class="kq-item"><div class="kq-bullet">4</div><div class="kq-text"><strong>Receipt to Receipt Data (R2R):</strong> The actual, realized physical return times.</div></div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#FDE047;">3.2 ETL Architecture and Data Remediation</div>
+    <div class="ctx-body">
+        Raw supply chain data is inherently noisy. To ensure the integrity of the simulation, we developed a rigorous <strong>Extract, Transform, Load (ETL)</strong> pipeline using Python (<code>pandas</code>, <code>numpy</code>) to systematically repair the data.
+        <br><br>
+        <strong>Structural Transformation:</strong> The raw 'Sales QTY' sheet was originally formatted for human readability (as a pivot table with blank visual spaces) rather than machine processing. We engineered an algorithm utilizing <strong>forward-fill logic</strong> to programmatically propagate customer and product labels down through the blank rows, allowing the system to correctly parse transaction histories.
+        <br><br>
+        <strong>Handling Anomalous Legacy Data:</strong> During exploratory analysis, the system identified containers with recorded manufacturing dates of <code>1899-12-31</code>. This is a classic <strong>epoch sentinel value</strong>—a default date utilized by legacy computer systems when actual data is missing. If left unhandled, the system would calculate these assets as being over 120 years old, heavily skewing EU compliance metrics. The pipeline actively hunts and nullifies these legacy dates.
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#FDE047;">3.3 Synthetic Data Generation</div>
+    <div class="ctx-body">
+        Our most critical challenge involved discrepancies between sales and manufacturing records. The data revealed that MLI was actively shipping specific product categories that, according to the manufacturing registry, did not exist. To prevent the simulation from assuming a fleet size of zero for active products, we developed <code>mfg_generator.py</code>. This script mathematically calculates the minimum fleet size required to support the observed sales volume and back-generates synthetic manufacturing dates, repairing the gap between supply and demand data.
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#FDE047;">3.4 Feature Engineering and Imputation</div>
+    <div class="ctx-body">
+        Where data gaps existed in customer return times, a dedicated module (<code>data_imputer.py</code>) utilized <strong>Null-Fill Imputation</strong> (applying product-specific medians to blank cells) to ensure calculations were not disrupted. Furthermore, the system profiles every client using <strong>Z-scores</strong>—a statistical measurement of variance—to automatically detect and flag when a customer exhibits a highly abnormal spike in ordering behavior or asset hoarding.
+    </div>
+</div>
+
+<!-- 4. System Architecture -->
+<div class="section-hdr" style="border-left-color:#a78bfa;color:#a78bfa;">
+    4. System Architecture and Modeling
+</div>
+<div class="context-block">
+    <div class="ctx-title" style="color:#C084FC;">4.1 Monte Carlo Discrete-Event Simulation</div>
+    <div class="ctx-body">
+        Because deterministic formulas (e.g., standard averages) fail to capture the chaos of real-world logistics, Möbius AI utilizes a <strong>stochastic</strong> modeling approach. If a deterministic model assumes a customer <em>always</em> takes 10 days to return a tote, a single 30-day delay will cause a stockout.
+        <div style="background:rgba(255,255,255,0.04); border-left:3px solid #a78bfa; padding:10px 14px; margin:10px 0; border-radius:4px;">
+            <strong>📌 Concept Breakdown: Simulation Strategies</strong><br>
+            • <strong>Discrete-Event Simulation:</strong> A computer model that plays out an entire year of operations day-by-day.<br>
+            • <strong>Monte Carlo (Stochastic) Method:</strong> Running thousands of simulated "what-if" scenarios that factor in randomness and unpredictability.
+        </div>
+        <strong>State Machine Mechanics:</strong> The simulation models individual assets traversing five distinct states:
+        <br>1. <strong>Warehouse:</strong> Idle and available.
+        <br>2. <strong>Transit Out:</strong> Modeled using a <strong>Uniform Distribution</strong> (e.g., any duration between 2 to 5 days is equally likely).
+        <br>3. <strong>Customer Dwell Time:</strong> Modeled using a <strong>Gaussian (Normal) Distribution</strong> (a bell curve acknowledging that most returns happen on time, but rare, extreme delays do occur).
+        <br>4. <strong>Transit In:</strong> En route back to MLI.
+        <br>5. <strong>Maintenance:</strong> Undergoing mandated inspection.
+        <br><br>
+        To identify the optimal fleet size, the simulation wraps the engine in a <strong>Binary Search Algorithm</strong>—a computational strategy that rapidly tests high and low fleet sizes until it discovers the absolute minimum number of physical assets required to maintain a 99% availability rate.
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#C084FC;">4.2 Generative AI Multi-Agent Ecosystem</div>
+    <div class="ctx-body">
+        To elevate the dashboard beyond static analytics, we integrated a Large Language Model (LLM) backend via the Google Gemini 3.1 Pro API, allowing users to query their supply chain using natural language.
+        <br><br>
+        A known limitation of LLMs is their tendency to <strong>hallucinate</strong> (confidently fabricate information). To mitigate this critical risk, we engineered a "Multi-Agent Meeting Room" paradigm. Rather than relying on a single AI prompt, the system deploys four distinct AI personas:<br>
+        <div class="kq-item" style="margin-top:8px;"><div class="kq-bullet">1</div><div class="kq-text"><strong>The Data Validator:</strong> Confirms statistical sample sizes and data integrity.</div></div>
+        <div class="kq-item"><div class="kq-bullet">2</div><div class="kq-text"><strong>The Inventory Agent:</strong> Specializes in fleet sizing and EU compliance.</div></div>
+        <div class="kq-item"><div class="kq-bullet">3</div><div class="kq-text"><strong>The Logistics Agent:</strong> Focuses on geographical transit bottlenecks.</div></div>
+        <div class="kq-item"><div class="kq-bullet">4</div><div class="kq-text"><strong>The Senior Manager:</strong> Synthesizes the debate into a cohesive executive summary.</div></div>
+        By forcing the AI to deliberate across different operational domains, the system self-corrects and provides highly reliable, multi-faceted business recommendations.
+    </div>
+</div>
+
+<!-- 5. Results and Analysis -->
+<div class="section-hdr" style="border-left-color:#ef4444;color:#ef4444;">
+    5. Results and Analysis
+</div>
+<div class="context-block">
+    <div class="ctx-body" style="margin-bottom:14px;">
+        Through the deployment of the Möbius AI pipeline, several critical insights were extracted from MLI's historical data:
+    </div>
+
+    <div class="ctx-title" style="color:#F87171;">5.1 Identification of Optimal Fleet Sizes</div>
+    <div class="ctx-body">
+        The binary search simulation successfully calculated the mathematical floor for fleet sizing. By inputting the exact daily demand and stochastic dwell times, the system identified the precise unit count required to prevent stockouts. Comparing these optimal numbers against MLI's actual physical inventory immediately highlighted categories suffering from severe capital bloat (over-procurement) and areas exposed to critical risk (under-procurement).
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#F87171;">5.2 Automated Behavioral Anomaly Detection</div>
+    <div class="ctx-body">
+        The customer insight engine successfully parsed the client base, automatically tagging buying patterns ("Consistent", "Seasonal", "Sporadic"). Utilizing the Z-score engine, MLI can now differentiate between systemic fleet shortages and localized, one-off anomalous demand spikes caused by specific clients.
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#F87171;">5.3 Proactive Regulatory Compliance Tracking</div>
+    <div class="ctx-body">
+        The dashboard aggregated the remediated manufacturing dates into a continuous age distribution. By applying the 1,551-day EU limit, the system provides an immediate, quantifiable count of assets poised to "age out" in the next 6, 12, and 18 months, enabling preemptive capital expenditure planning.
+    </div>
+</div>
+
+<!-- 6. Impact -->
+<div class="section-hdr" style="border-left-color:#10b981;color:#10b981;">
+    6. Impact and Strategic Value
+</div>
+<div class="context-block">
+    <div class="ctx-title" style="color:#34D399;">6.1 Business and Financial Impact</div>
+    <div class="ctx-body">
+        Möbius AI transitions MLI's asset management from a reactive cost-center to a proactive strategic advantage. By trusting the mathematical floor provided by the simulation, MLI can safely pause the procurement of overstocked container categories, <strong>freeing up millions of dollars in working capital</strong>. Furthermore, predicting stockouts ensures that chemical manufacturing lines—both MLI's and their clients'—are never forced to halt due to packaging logistics failures.
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#34D399;">6.2 Social and Environmental Sustainability</div>
+    <div class="ctx-body">
+        A closed-loop supply chain is inherently sustainable, but logistical inefficiencies break that loop. Every excess tote manufactured to compensate for poor tracking carries a heavy carbon footprint (plastic extraction, metal processing, and international shipping). By maximizing the utilization rate of the existing fleet, Möbius AI directly contributes to corporate sustainability goals, reducing environmental waste and minimizing transportation emissions associated with repositioning empty assets.
+    </div>
+</div>
+
+<!-- 7. Limitations -->
+<div class="section-hdr" style="border-left-color:#64748b;color:#64748b;">
+    7. Limitations and Future Extensibility
+</div>
+<div class="context-block">
+    <div class="ctx-title" style="color:#94A3B8;">7.1 Current System Limitations</div>
+    <div class="ctx-body">
+        • <strong>Distribution Assumptions:</strong> The Monte Carlo simulation assumes customer delays follow a standard Gaussian distribution. It struggles to model <strong>Black Swan events</strong> (highly improbable, massively disruptive events such as global pandemics or acute port strikes).<br>
+        • <strong>Static Data Snapshots:</strong> The system currently relies on historical data exported to Excel. The intelligence is bounded by the frequency of these manual data dumps.<br>
+        • <strong>Lack of Geolocation:</strong> "Transit" is modeled as a state of time, not a physical coordinate. It cannot account for specific localized route optimizations or weather delays.
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06); margin:18px 0;"></div>
+
+    <div class="ctx-title" style="color:#94A3B8;">7.2 Recommendations for Future Development</div>
+    <div class="ctx-body">
+        • <strong>Real-Time ERP API Integrations:</strong> Transitioning the pipeline to connect directly to MLI's Enterprise Resource Planning (ERP) system, allowing the Control Tower to update live via warehouse barcode scans.<br>
+        • <strong>IoT Hardware Integration:</strong> Equipping physical totes with active RFID or cellular GPS trackers. This would replace stochastic transit assumptions with deterministic, real-time global mapping.<br>
+        • <strong>Advanced Time-Series Forecasting:</strong> Upgrading static daily demand calculations to utilize Machine Learning models (such as ARIMA or LSTM Neural Networks) to predict future demand seasonality with superior accuracy.
+    </div>
+</div>
+
+<!-- 8. References -->
+<div class="section-hdr" style="border-left-color:#8b5cf6;color:#8b5cf6;">
+    8. References
+</div>
+<div class="context-block">
+    <div class="ctx-body">
+        <div class="kq-item">
+            <div class="kq-bullet">1</div>
+            <div class="kq-text">Google Generative AI Documentation. (2026). <em>Gemini API and Multi-Agent Architecture.</em> Retrieved from https://ai.google.dev/</div>
+        </div>
+        <div class="kq-item">
+            <div class="kq-bullet">2</div>
+            <div class="kq-text">Plotly Graphing Libraries. (2026). <em>Interactive Data Visualization in Python.</em> Retrieved from https://plotly.com/python/</div>
+        </div>
+        <div class="kq-item">
+            <div class="kq-bullet">3</div>
+            <div class="kq-text">Streamlit Documentation. (2026). <em>Building Data Applications.</em> Retrieved from https://docs.streamlit.io/</div>
+        </div>
+        <div class="kq-item">
+            <div class="kq-bullet">4</div>
+            <div class="kq-text">McKinsey & Company. (2024). <em>The future of returnable transit packaging.</em> Supply Chain Practice Insights.</div>
+        </div>
+        <div class="kq-item">
+            <div class="kq-bullet">5</div>
+            <div class="kq-text">European Commission. (2024). <em>Regulations on the transport of dangerous goods and packaging lifecycles.</em> Official Journal of the European Union.</div>
+        </div>
     </div>
 </div>
 
