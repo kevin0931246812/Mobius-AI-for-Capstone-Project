@@ -1858,34 +1858,7 @@ body {
     </div>
 </div>
 
-<!-- 8. References -->
-<div class="section-hdr" style="border-left-color:#8b5cf6;color:#8b5cf6;">
-    8. References
-</div>
-<div class="context-block">
-    <div class="ctx-body">
-        <div class="kq-item">
-            <div class="kq-bullet">1</div>
-            <div class="kq-text">Google Generative AI Documentation. (2026). <em>Gemini API and Multi-Agent Architecture.</em> Retrieved from https://ai.google.dev/</div>
-        </div>
-        <div class="kq-item">
-            <div class="kq-bullet">2</div>
-            <div class="kq-text">Plotly Graphing Libraries. (2026). <em>Interactive Data Visualization in Python.</em> Retrieved from https://plotly.com/python/</div>
-        </div>
-        <div class="kq-item">
-            <div class="kq-bullet">3</div>
-            <div class="kq-text">Streamlit Documentation. (2026). <em>Building Data Applications.</em> Retrieved from https://docs.streamlit.io/</div>
-        </div>
-        <div class="kq-item">
-            <div class="kq-bullet">4</div>
-            <div class="kq-text">McKinsey & Company. (2024). <em>The future of returnable transit packaging.</em> Supply Chain Practice Insights.</div>
-        </div>
-        <div class="kq-item">
-            <div class="kq-bullet">5</div>
-            <div class="kq-text">European Commission. (2024). <em>Regulations on the transport of dangerous goods and packaging lifecycles.</em> Official Journal of the European Union.</div>
-        </div>
-    </div>
-</div>
+
 
 
 </div><!-- /problems -->
